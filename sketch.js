@@ -1,6 +1,6 @@
 function preload(){
 	//get note frequencies
-	notes = loadJSON('notes.json')
+	//notes = loadJSON('notes.json')
 }
 
 function setup() {
