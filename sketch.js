@@ -8,7 +8,6 @@ function setup() {
 
 	//setup mic
 	mic = new p5.AudioIn();
-	mic.start();
 	
 	//setup fft
 	fft = new p5.FFT();
@@ -89,7 +88,8 @@ translate(width/2, height/2);
 	//between 0 and ten, the mapping of r for the radial wave
 	text('A',BASE_RADIUS*-5 ,BASE_RADIUS*-5,BASE_RADIUS*10,BASE_RADIUS*10);
 
-
-
 }
+function mousePressed() {
+	mic.start();
+  }
 	
