@@ -5,6 +5,16 @@ function preload(){
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);	
+	
+	//setup mic
+	mic = new p5.AudioIn();
+	mic.start();
+	
+		
+	//setup fft
+	fft = new p5.FFT();
+	fft.setInput(mic);
+	
 }
 
 function draw() {
@@ -79,15 +89,5 @@ translate(width/2, height/2);
 	text('A',BASE_RADIUS*-5 ,BASE_RADIUS*-5,BASE_RADIUS*10,BASE_RADIUS*10);
 
 }
-function mousePressed() {
-	//setup mic
-	mic = new p5.AudioIn();
-	mic.start();
-	
-		
-	//setup fft
-	fft = new p5.FFT();
-	fft.setInput(mic);
-	
-  }
+
 	
