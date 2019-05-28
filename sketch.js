@@ -4,14 +4,7 @@ function preload(){
 }
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
-	
-	//setup fft
-	fft = new p5.FFT();
-	fft.setInput(mic);
-	
-
-	
+	createCanvas(windowWidth, windowHeight);	
 }
 
 function draw() {
@@ -90,5 +83,11 @@ function mousePressed() {
 	//setup mic
 	mic = new p5.AudioIn();
 	mic.start();
+	
+		
+	//setup fft
+	fft = new p5.FFT();
+	fft.setInput(mic);
+	
   }
 	
