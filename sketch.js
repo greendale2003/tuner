@@ -5,9 +5,6 @@ function preload(){
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-
-	//setup mic
-	mic = new p5.AudioIn();
 	
 	//setup fft
 	fft = new p5.FFT();
@@ -90,6 +87,8 @@ translate(width/2, height/2);
 
 }
 function mousePressed() {
+	//setup mic
+	mic = new p5.AudioIn();
 	mic.start();
   }
 	
