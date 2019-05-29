@@ -1,31 +1,43 @@
+//One way flag variable to see if the visualization has started
+var started = false;
+
 function preload(){
 	//get note frequencies
 	//notes = loadJSON('notes.json')
 }
 
-function setup() {
-	createCanvas(windowWidth, windowHeight);	
-	
+function setup(){
+	createCanvas(windowWidth, windowHeight);
+}
+
+//Start when the user presses the mouse as per chromes autoplay policy
+function mousePressed() {
 	//setup mic
 	mic = new p5.AudioIn();
 	mic.start();
 	
-		
 	//setup fft
 	fft = new p5.FFT();
 	fft.setInput(mic);
-	
+	started = true;
 }
 
 function draw() {
-//clear the background every cycle
-	//background(220)
-	
+	if (started){
+		visualize();
+	}else{
+		fill(255,255,255);
+		text('PRESS TO START',0,0);
+		console.log(started);
+	}
+}
+
+function visualize(){
 //change stripe color based on frequencies
 	fft.analyze()
 	energies = [fft.getEnergy('bass'),fft.getEnergy('lowMid'),fft.getEnergy('mid'),fft.getEnergy('highMid'),fft.getEnergy('treble')]
 	
-//draw the shapes
+//draw the background shapes
 	noStroke();
 	
 	fill(255-energies[4],100,energies[4]);
@@ -80,14 +92,13 @@ translate(width/2, height/2);
 	/*
 	-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	*/
-	
-	//Write the note name
 	fill(20);
 	textSize(200);
 	textAlign(CENTER,CENTER);
 	//between 0 and ten, the mapping of r for the radial wave
 	text('A',BASE_RADIUS*-5 ,BASE_RADIUS*-5,BASE_RADIUS*10,BASE_RADIUS*10);
+	fill(100,200);
+	console.log(mouseX - width/2,mouseY - height/2);
 
 }
-
 	
