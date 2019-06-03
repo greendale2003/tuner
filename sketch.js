@@ -7,7 +7,6 @@ function preload(){
 }
 
 function setup(){
-	createCanvas(windowWidth, windowHeight);
 }
 
 //Start when the user presses the mouse as per chromes autoplay policy
@@ -15,6 +14,9 @@ function mousePressed() {
 	//setup mic
 	mic = new p5.AudioIn();
 	mic.start();
+	
+	createCanvas(windowWidth, windowHeight);
+
 	
 	//setup fft
 	fft = new p5.FFT();
