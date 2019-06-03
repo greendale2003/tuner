@@ -6,10 +6,6 @@ function preload(){
 	//notes = loadJSON('notes.json')
 }
 
-function setup(){
-	var clickMessage = createDiv('Click to start the tuner').size(100,100)
-}
-
 //Start when the user presses the mouse as per chromes autoplay policy
 function mousePressed() {
 	//setup mic
@@ -18,10 +14,7 @@ function mousePressed() {
 	
 	//setup canvas
 	createCanvas(windowWidth, windowHeight);
-	
-	//hide message
-	clickMessage.size(0,0)
-	
+		
 	//setup fft
 	fft = new p5.FFT();
 	fft.setInput(mic);
